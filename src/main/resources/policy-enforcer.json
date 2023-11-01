@@ -8,11 +8,11 @@
   "http-method-as-scope": true,
   "paths" : [
     {
-      "path": "/restaurant",
-      "enforcement-mode": "ENFORCING"
+      "path": "http://localhost:8080/swagger-ui/index.html",
+      "enforcement-mode": "DISABLED"
     },
     {
-      "path": "/restaurant/public/list",
+      "path": "/abc",
       "enforcement-mode": "DISABLED"
     },{
       "path": "/restaurant/public/menu/*",

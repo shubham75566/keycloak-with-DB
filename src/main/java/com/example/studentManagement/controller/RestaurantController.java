@@ -7,6 +7,7 @@ import com.example.studentManagement.repository.MenuItemRepository;
 import com.example.studentManagement.repository.MenuRepository;
 import com.example.studentManagement.repository.RestaurantRepository;
 //import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -22,6 +23,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/restaurant")
+@SecurityRequirement(name = "keycloak")
 public class RestaurantController {
 	
 	@Autowired
@@ -51,10 +53,8 @@ public class RestaurantController {
 
 
 	@PostMapping
-
-//	@PreAuthorize("hasRole('client_admin')")
 	// admin can access (admin)
-	public Restaurant createRestaurant(@AuthenticationPrincipal Jwt jwt,@RequestBody Restaurant restaurant) {
+	public Restaurant createRestaurant(@RequestBody Restaurant restaurant) {
         return restaurantRepository.save(restaurant);
     }
 	

@@ -29,7 +29,6 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http)
             throws Exception {
         http.csrf(t -> t.disable());
-//        System.out.println("ss");
         http.addFilterAfter(createPolicyEnforcerFilter(),
                 BearerTokenAuthenticationFilter.class);
 
