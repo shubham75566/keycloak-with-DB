@@ -1,10 +1,13 @@
 package com.example.studentManagement.entity;
 
+import com.example.studentManagement.requestPayload.MenuRequestPayload;
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
 public class Menu {
 	
 	@Id
@@ -17,6 +20,10 @@ public class Menu {
 
     @Transient
     private List<MenuItem> menuItems;
+	public Menu(MenuRequestPayload menuRequestPayload) {
+
+
+	}
 
 	public Long getId() {
 		return id;

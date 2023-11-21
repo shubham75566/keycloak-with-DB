@@ -1,5 +1,7 @@
 package com.example.studentManagement.entity;
 
+import com.example.studentManagement.requestPayload.OrderItemRequestPayload;
+import com.example.studentManagement.requestPayload.OrderRequestPayload;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -17,8 +19,17 @@ public class Order{
 
     private BigDecimal total;
 
+    @OneToMany
     @Transient
-	    private List<OrderItem> orderItems;
+	private List<OrderItem> orderItems;
+    public Order() {
+
+    }
+    public Order(OrderRequestPayload orderRequestPayload) {
+		this.restaurantId = orderRequestPayload.getRestaurantId();
+		this.total = orderRequestPayload.getTotal();
+		this.orderItems = orderRequestPayload.getOrderItems().stream().map(OrderItem::new).toList();
+	}
 
 	public Long getId() {
 		return id;

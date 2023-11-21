@@ -1,5 +1,7 @@
 package com.example.studentManagement.entity;
 
+import com.example.studentManagement.requestPayload.OrderItemRequestPayload;
+import com.example.studentManagement.responsePayloads.OrderItemResponseItem;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +21,19 @@ public class OrderItem{
     private Long menuItemId;
 
     private BigDecimal price;
+    public OrderItem() {
+
+    }
+    public OrderItem(OrderItemRequestPayload o) {
+		this.menuItemId=o.getMenuItemId();
+		this.price=o.getPrice();
+
+	}
+	public OrderItem(OrderItemRequestPayload orderItem, Long id) {
+		this.menuItemId=orderItem.getMenuItemId();
+		this.price= orderItem.getPrice();
+		this.orderId=id;
+	}
 
 	public Long getId() {
 		return id;

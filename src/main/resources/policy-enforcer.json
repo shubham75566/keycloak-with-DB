@@ -1,9 +1,9 @@
 {
-  "realm": "dive-dev",
-  "auth-server-url": "http://127.0.0.1:8081",
-  "resource": "springboot-be",
+  "realm": "Innogent",
+  "auth-server-url": "http://localhost:8081/",
+  "resource": "grappler",
   "credentials": {
-    "secret": "ABzc1m0QVZwOw22DYlYjN0y8VS2n0lr7"
+    "secret": "upf4cBZaZJtYeXnEdpwVrpb50eVN4NAo"
   },
   "http-method-as-scope": true,
   "paths" : [
@@ -12,7 +12,7 @@
       "enforcement-mode": "DISABLED"
     },
     {
-      "path": "/abc",
+      "path": "/restaurant/public/list",
       "enforcement-mode": "DISABLED"
     },{
       "path": "/restaurant/public/menu/*",

@@ -1,5 +1,7 @@
 package com.example.studentManagement.entity;
 
+import com.example.studentManagement.requestPayload.RestaurantCreateRequestPayload;
+import com.example.studentManagement.responsePayloads.RestaurantCreateResponsePayload;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,4 +24,15 @@ public class Restaurant {
     @Column(name = "type_name")
     private String type;
 
+    public Restaurant(RestaurantCreateRequestPayload restaurantCreateRequestPayload) {
+        this.location=restaurantCreateRequestPayload.getLocation();
+        this.name= restaurantCreateRequestPayload.getName();
+        this.type= restaurantCreateRequestPayload.getType();
+    }
+    public Restaurant(RestaurantCreateResponsePayload restaurantCreateRequestPayload) {
+        this.location=restaurantCreateRequestPayload.getLocation();
+        this.name= restaurantCreateRequestPayload.getName();
+        this.type= restaurantCreateRequestPayload.getType();
+        this.id= restaurantCreateRequestPayload.getId();
+    }
 }
