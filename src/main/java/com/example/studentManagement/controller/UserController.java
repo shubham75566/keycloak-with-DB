@@ -1,7 +1,7 @@
 package com.example.studentManagement.controller;
 
 import com.example.studentManagement.requestPayload.UserRequestPayload;
-import com.example.studentManagement.service.impl.KCService;
+import com.example.studentManagement.service.KCService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
